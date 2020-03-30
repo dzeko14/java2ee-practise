@@ -24,6 +24,6 @@
     Пароль: <input type="password" name="password">
     <input type="submit" value="Увійти">
 </form>
-<a href="registraion.jsp">Зареєструватися</a>
+<a href="registration.jsp">Зареєструватися</a>
 </body>
 </html>

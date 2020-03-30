@@ -2,20 +2,26 @@ package com.github.dzeko14.models.dao;
 
 import com.github.dzeko14.models.User;
 
-import javax.ejb.Singleton;
-import java.sql.*;
+import javax.ejb.Stateless;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-@Singleton
+@Stateless
 public class UserDaoImpl implements UserDao {
 
     private Connection mConnection;
 
     public UserDaoImpl() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            mConnection = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/GymSchema?serverTimezone=UTC", "root", "qwerty12345x");
-        } catch (SQLException | ClassNotFoundException e) {
+            InitialContext context=new InitialContext();
+            DataSource d =(DataSource)context.lookup("java:/MySqlDS");
+            mConnection = d.getConnection();
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
         }
     }
