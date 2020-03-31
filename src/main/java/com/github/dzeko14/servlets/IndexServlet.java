@@ -17,7 +17,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         if (session.isNew() || !(session.getAttribute(ParamsConstants.USER) instanceof User)) {
-            resp.sendRedirect("auth.jsp");
+            resp.sendRedirect("coaches");
             return;
         }
 

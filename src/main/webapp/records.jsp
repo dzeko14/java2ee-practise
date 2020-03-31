@@ -13,19 +13,17 @@
 </head>
 <body>
 <table border="1">
-    <caption><h3>Список тренерів</h3></caption>
+    <caption><h3>Записи</h3></caption>
     <tr>
-        <th>Телефон</th>
+        <th>Дата</th>
         <th> Ім'я </th>
-        <th> Адреса залу</th>
         <th></th>
     </tr>
-    <c:forEach var="coach" items="${coaches}">
+    <c:forEach var="record" items="${records}">
         <tr>
-            <td>${coach.phoneNumber}</td>
-            <td>${coach.name}</td>
-            <td>${coach.gymAddress}</td>
-            <td><a href="records?coachPhone=${coach.phoneNumber}">Детальніше</a></td>
+            <td>${record.date}</td>
+            <td>${record.userName}</td>
+            <td><c:if test="${user.phoneNumber == record.userPhone}"><a href="/=${coach.phoneNumber}">Видалити</a></c:if></td>
         </tr>
     </c:forEach>
 </table>
