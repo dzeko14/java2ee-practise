@@ -33,7 +33,7 @@ public class AuthServlet extends HttpServlet {
         if (user != null && user.getPassword().equals(password)) {
             HttpSession session = req.getSession();
             session.setAttribute(ParamsConstants.USER, user);
-            resp.sendRedirect("test.html");
+            resp.sendRedirect("coaches");
         } else {
             RequestDispatcher rd = req.getRequestDispatcher("auth.jsp");
             req.setAttribute("authError", true);
