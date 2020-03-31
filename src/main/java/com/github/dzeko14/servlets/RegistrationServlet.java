@@ -1,8 +1,9 @@
 package com.github.dzeko14.servlets;
 
 import com.github.dzeko14.models.User;
-import com.github.dzeko14.models.dao.UserDaoImpl;
+import com.github.dzeko14.models.dao.UserDao;
 
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +14,8 @@ import java.io.IOException;
 
 @WebServlet(name = "RegistrationServlet", urlPatterns = {"/registration"})
 public class RegistrationServlet extends HttpServlet {
-    UserDaoImpl userDao = new UserDaoImpl();
+    @EJB
+    UserDao userDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
 
         User user = new User(phone, name, password);
 
-        if (userDao.saveUser(user)) {
+        if (!userDao.saveUser(user)) {
             RequestDispatcher rd = req.getRequestDispatcher("registration.jsp");
             req.setAttribute("regError", true);
             rd.forward(req, resp);

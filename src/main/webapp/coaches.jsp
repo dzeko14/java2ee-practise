@@ -13,7 +13,7 @@
 </head>
 <body>
 <table border="1">
-    <caption><h3>Список вендорів</h3></caption>
+    <caption><h3>Список тренерів</h3></caption>
     <tr>
         <th>Телефон</th>
         <th> Ім'я </th>
