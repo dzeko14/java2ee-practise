@@ -1,5 +1,6 @@
 package com.github.dzeko14.ejb;
 
+import com.github.dzeko14.models.Coach;
 import com.github.dzeko14.models.Training;
 
 import javax.ejb.Stateless;
@@ -24,5 +25,14 @@ public class TrainingEjb {
             result = null;
         }
         return result;
+    }
+
+    public void createTraining(String coachPhone, String userPhone, int quantity) {
+        Coach coach = entityManager.find(Coach.class, coachPhone);
+        Training training = new Training();
+        training.setUserPhone(userPhone);
+        training.setCoach(coach);
+        training.setAmount(quantity);
+        entityManager.persist(training);
     }
 }
