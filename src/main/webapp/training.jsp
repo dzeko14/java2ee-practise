@@ -17,6 +17,6 @@
     <br />
     Кількість тренувань:  ${training.amount}
     <br />
-    <a href="deleteTraining?id=${training.id}">Видалити</a>
+    <a href="deleteTraining?id=${training.id}">Видалити</a> | <a href="updateTraining?id=${training.id}">Оновити</a>
 </body>
 </html>

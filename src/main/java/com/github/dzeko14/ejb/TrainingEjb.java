@@ -27,6 +27,10 @@ public class TrainingEjb {
         return result;
     }
 
+    public Training getUserTrainingById(int id) {
+        return entityManager.find(Training.class, id);
+    }
+
     public void createTraining(String coachPhone, String userPhone, int quantity) {
         Coach coach = entityManager.find(Coach.class, coachPhone);
         Training training = new Training();
@@ -38,5 +42,9 @@ public class TrainingEjb {
 
     public void removeTrainingById(int trainingId) {
         entityManager.remove(entityManager.find(Training.class, trainingId));
+    }
+
+    public void updateTrainingQuantity(int quantity, int trainingId) {
+        entityManager.find(Training.class, trainingId).setAmount(quantity);
     }
 }
