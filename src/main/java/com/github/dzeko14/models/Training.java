@@ -6,17 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Record {
+public class Training {
     @Id
     @GeneratedValue
     private int id;
-    private long date;
+    private int amount;
     private String userPhone;
-    private String userName;
     @ManyToOne
     private Coach coach;
 
-    public Record() {
+    public Training() {
     }
 
     public int getId() {
@@ -27,14 +26,6 @@ public class Record {
         this.id = id;
     }
 
-    public long getDate() {
-        return date;
-    }
-
-    public void setDate(long date) {
-        this.date = date;
-    }
-
     public String getUserPhone() {
         return userPhone;
     }
@@ -43,19 +34,19 @@ public class Record {
         this.userPhone = userPhone;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public Coach getCoach() {
         return coach;
     }
 
     public void setCoach(Coach coach) {
         this.coach = coach;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

@@ -25,7 +25,7 @@
             <td>${coach.phoneNumber}</td>
             <td>${coach.name}</td>
             <td>${coach.gymAddress}</td>
-            <td><a href="records?coachPhone=${coach.phoneNumber}">Детальніше</a></td>
+            <td><a href="training?coachPhone=${coach.phoneNumber}">Замовити тренування</a></td>
         </tr>
     </c:forEach>
 </table>
