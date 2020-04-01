@@ -9,14 +9,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html>
 <head>
-    <title>Coaches</title>
+    <title>Замовлене тренування</title>
 </head>
 <body>
     <h3>Деталі про замовлене тренування</h3>
-    <br />
     Тренер: ${training.coach.name}
     <br />
     Кількість тренувань:  ${training.amount}
     <br />
+    <a href="deleteTraining?id=${training.id}">Видалити</a>
 </body>
 </html>

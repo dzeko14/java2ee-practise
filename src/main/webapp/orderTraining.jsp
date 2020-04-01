@@ -14,7 +14,7 @@
 <body>
 <h3>Замовити тренування</h3>
 <form action="training" method="POST">
-    <input type="text" name="coachPhone" value="${coachPhone}"/><br/>
+    <input type="hidden" name="coachPhone" value="${coachPhone}"/><br/>
     <label for="quantity">Кількість (від 1 до 10):</label>
     <input type="number" id="quantity" name="quantity" min="1" max="10">
     <input type="submit" value="Замовити">

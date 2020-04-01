@@ -35,4 +35,8 @@ public class TrainingEjb {
         training.setAmount(quantity);
         entityManager.persist(training);
     }
+
+    public void removeTrainingById(int trainingId) {
+        entityManager.remove(entityManager.find(Training.class, trainingId));
+    }
 }
